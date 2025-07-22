@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const mysql = require("mysql2");
 const bodyParser = require("body-parser");
@@ -7,7 +9,7 @@ const axios = require("axios");
 const bcrypt = require("bcrypt");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // ✅ Middleware
 app.use(cors());
@@ -17,10 +19,10 @@ app.use(express.static(path.join(__dirname, "../frontend")));
 
 // ✅ MySQL Connection
 const db = mysql.createConnection({
-  host: process.env.DB_HOST || "chaitu-rds.ckdi02am6h3i.us-east-1.rds.amazonaws.com",
-  user: process.env.DB_USER || "chaitu",
-  password: process.env.DB_PASS || "chaitu2306",
-  database: process.env.DB_NAME || "zepto"
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
 });
 
 db.connect((err) => {
