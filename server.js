@@ -17,10 +17,10 @@ app.use(bodyParser.json());
 
 // ✅ MySQL Connection
 const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME
+  host: process.env.DB_HOST || rds-master.cra6qquqgnrl.eu-west-3.rds.amazonaws.com,
+  user: process.env.DB_USER || chaitu,
+  password: process.env.DB_PASS || chaitu2306,
+  database: process.env.DB_NAME || zepto
 });
 
 db.connect((err) => {
