@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const axios = require("axios");
 const bcrypt = require("bcrypt");
+const mysql = require('mysql');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -152,4 +153,7 @@ app.get("/call-private", async (req, res) => {
 // ✅ Start server
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Server running on http://0.0.0.0:${PORT}`);
+});
+app.listen(3000, () => {
+  console.log("Server started on port 3000");
 });
